@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!-- Es como crear un objeto java -->
+   <!-- scope: singleton -o- prototype, maneja el alcance del objeto y la cantidad de objetos creador
+   para cada instanciación
+   prototype: crea uno para cada instanciación
+   singleton: pasa el mismo objeto varias veces-->
+
+    <bean id="calculadora" class="com.example.Calculadora" scope="">
+    </bean>
+    <bean id="gestorFacturas" class="com.example.GestorFacturas">
+        <!-- El atributo no tiene por que coincidir con el id -->
+        <constructor-arg name="calculadora" ref="calculadora" />
+        <constructor-arg name="nombre" value="Faturator 3000" />
+    </bean>
+
+</beans>
